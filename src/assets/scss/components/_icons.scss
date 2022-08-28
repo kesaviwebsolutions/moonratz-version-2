@@ -1,0 +1,175 @@
+[data-ico] {
+  &:before, &:after {
+    display: block;
+    content: "";
+  }
+
+  &:before {
+    position: relative;
+    width: 100%;
+  }
+
+  &:after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  &:not([data-ico="mlogo"]):not([data-ico="options"]):not([data-ico="info"]) {
+    display: inline-block;
+  }
+
+  &:not([data-ico="mlogo"]):not([data-ico="options"]):not([data-ico="eth"]):not([data-ico="chedda"]):not([data-ico="rtp"]):not([data-ico="nft"]):not([data-ico="arrow-down"]) {
+    position: relative;
+    width: rem-calc(42);
+    height: rem-calc(42);
+
+    @include breakpoint(large up) {
+      width: rem-calc(42);
+      height: rem-calc(42);
+    }
+  }
+
+  &[data-ico="eth"], &[data-ico="chedda"], &[data-ico="rtp"], &[data-ico="nft"], &[data-ico="arrow-down"] {
+    display: inline-block;
+    width: rem-calc(32);
+    height: rem-calc(32);
+    @include custom-radius(50%);
+    overflow: hidden;
+
+    &:after {
+      @include full-image;
+    }
+  }
+
+  .circle &, .circle-large & {
+    @include absolute-center;
+
+    &:hover {
+      @include opacity(.8);
+    }
+  }
+}
+
+[data-ico="arrow-down"] {
+  @include breakpoint(1023 down) {
+    width: rem-calc(24);
+    height: rem-calc(24);
+  }
+
+  &:after {
+    width: auto;
+    @include absolute-center;
+    @include css-triangle(rem-calc(4), $cheese, down);
+  }
+}
+
+[data-ico="os"] {
+  &:after {
+    background-image: url("./../../../components/images/icons/opensea-cheese.svg");
+  }
+}
+
+[data-ico="discord"] {
+  &:after {
+    background-image: url("./../../../components/images/icons/discord-cheese.svg");
+  }
+}
+
+[data-ico="telegram"] {
+  &:after {
+    background-image: url("./../../../components/images/icons/telegram-cheese.svg");
+  }
+}
+
+[data-ico="twitter"] {
+  &:after {
+    background-image: url("./../../../components/images/icons/twitter-cheese.svg");
+  }
+}
+
+[data-ico="info"] {
+  &:after {
+    background-image: url("./../../../components/images/icons/info.svg");
+  }
+
+  &.dark {
+    &:after {
+      background-image: url("./../../../components/images/icons/info-dark.svg");
+    }
+  }
+}
+
+[data-ico="eth"] {
+  &:after {
+    background-image: url("./../../../components/images/icons/eth.jpg");
+  }
+}
+
+[data-ico="chedda"] {
+  &:after {
+    background-image: url("./../../../components/images/icons/chedda.jpg");
+  }
+}
+
+[data-ico="rtp"] {
+  &:after {
+    background-image: url("./../../../components/images/icons/rattrap.jpg");
+  }
+}
+
+[data-ico="nft"] {
+  &:after {
+    background-image: url("./../../../components/images/icons/nft.gif");
+  }
+}
+
+
+[data-ico="close"] {
+  &:after {
+    content: "x";
+    font-family: $heading-font;
+    font-size: rem-calc(60)/1.5;
+    line-height: rem-calc(42);
+
+    @include breakpoint(large up) {
+      font-size: rem-calc(60)/1.5;
+      line-height: rem-calc(42);
+    }
+  }
+}
+
+[data-ico="options"] {
+  @include absolute-center;
+  width: rem-calc(4);
+  height: rem-calc(4);
+  background-color: $black;
+  @include custom-radius(50%);
+
+  &:before, &:after {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: inherit;
+    @include custom-radius(50%);
+    @extend %fast-ani;
+  }
+
+  &:before {
+    right: 200%;
+
+    #options label:hover & {
+      right: 125%;
+    }
+  }
+
+  &:after {
+    left: 200%;
+
+    #options label:hover & {
+      left: 125%;
+    }
+  }
+}

@@ -1,0 +1,33 @@
+.footer {
+  > * {
+    @include xy-gutters();
+    @include calc(width, "100% - #{$small-gutter}px");
+
+    @include breakpoint(large up) {
+      @include calc(width, "100% - #{$large-gutter}px");
+    }
+  }
+
+  a {
+    color: $white;
+  }
+
+  [data-list="inline"] {
+    @include flex-align(justify, middle);
+    @extend %mid-vspace-bottom;
+
+    li {
+      &:not(:last-child) {
+        margin-right: rem-calc($global-margin);
+      }
+    }
+  }
+}
+
+.trms {
+  margin-bottom: rem-calc($global-margin);
+
+  @include breakpoint(large up) {
+    margin-bottom: rem-calc($global-margin*2);
+  }
+}

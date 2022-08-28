@@ -1,0 +1,128 @@
+.modal {
+  position: fixed;
+  @include xy-grid();
+  @include flex-align(center, middle);
+  padding: rem-calc($small-gutter);
+  display: none;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  background-color: rgba($black, .5);
+  color: $black;
+
+  &.active {
+    display: flex;
+  }
+
+  a {
+    color: $black;
+  }
+
+  .window {
+    position: relative;
+    padding: rem-calc($large-gutter/1.5 25/1.5 40/1.5);
+    @include custom-radius(rem-calc(20));
+    background-color: $paper;
+    max-width: rem-calc(640);
+    width: 100%;
+    -webkit-box-shadow: rem-calc(0 0 0 1) $white, rem-calc(0 0 0 15) rgba($white, .1);
+    box-shadow: rem-calc(0 0 0 1) $white, rem-calc(0 0 0 15) rgba($white, .1);
+
+    @include breakpoint(large up) {
+      padding: rem-calc($large-gutter 25 40);
+      @include custom-radius(rem-calc(24));
+    }
+  }
+
+  .button-group {
+    &.split {
+      margin-top: rem-calc(40/1.5);
+
+      @include breakpoint(large up) {
+        margin-top: rem-calc(40);
+      }
+    }
+  }
+
+  .btn {
+    &.span {
+      display: block;
+      margin-top: rem-calc(40/1.5);
+      margin-right: rem-calc(-25/1.5);
+      margin-left: rem-calc(-25/1.5);
+      margin-bottom: rem-calc(-40/1.5);
+      @include calc(width, "100% + 25px / 1.5 * 2");
+
+      @include breakpoint(large up) {
+        margin-top: rem-calc(40);
+        margin-right: rem-calc(-25);
+        margin-left: rem-calc(-25);
+        margin-bottom: rem-calc(-40);
+        @include calc(width, "100% + 25px * 2");
+      }
+    }
+  }
+}
+
+.clear-span {
+  display: block;
+  width: 100%;
+  text-align: right;
+}
+
+.clear {
+  display: inline-block;
+  margin-left: auto;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.close {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  text-align: center;
+  @extend %fast-ani;
+  cursor: pointer;
+
+  &:hover {
+    @include scale(1.1);
+  }
+
+  .modal & {
+    position: absolute;
+    top: rem-calc(17/1.5);
+    right: rem-calc(25/1.5);
+
+    @include breakpoint(large up) {
+      top: rem-calc(17);
+      right: rem-calc(25);
+    }
+  }
+}
+
+.wallet-images {
+  @include flex-align(spaced, middle);
+
+  div {
+    @include xy-cell(6);
+    text-align: center;
+    cursor: pointer;
+    @extend %fast-ani;
+
+    &:hover {
+      @include opacity(.7);
+      @include scale(1.15);
+    }
+  }
+
+  img {
+    max-width: rem-calc(140);
+    width: 100%;
+  }
+}

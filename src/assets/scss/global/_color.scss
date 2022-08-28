@@ -1,0 +1,60 @@
+::-moz-selection {
+  background: $white;
+  color: $black
+}
+
+::selection {
+  background: $white;
+  color: $black
+}
+
+::-moz-selection {
+  background: $white;
+  color: $black
+}
+
+::-webkit-input-placeholder {
+  color: $black;
+}
+
+:hover::-webkit-input-placeholder {
+  color: $black;
+}
+
+::-moz-placeholder {
+  color: $black;
+}
+
+:hover::-moz-placeholder {
+  color: $black;
+}
+
+:-ms-input-placeholder {
+  color: $black;
+}
+
+:hover:-ms-input-placeholder {
+  color: $black;
+}
+
+:-moz-placeholder {
+  color: $black;
+}
+
+:hover:-moz-placeholder {
+  color: $black;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active
+{
+  -webkit-box-shadow: 0 0 0 30px $white inset !important;
+}
+
+/*Change text in autofill textbox*/
+input:-webkit-autofill
+{
+  -webkit-text-fill-color: $black !important;
+}

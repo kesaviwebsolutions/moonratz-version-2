@@ -1,0 +1,91 @@
+h1,h2,.h2,h3,.h3 {
+  margin: 0 0 $header-margin-bottom * 2 0;
+  font-family: $heading-font;
+  line-height: $header-lineheight;
+  font-weight: 400;
+}
+
+h1, h2, .h2, h3, .h3 {
+  small {
+    display: block;
+    font-family: $body-font;
+    font-size: rem-calc(16);
+    color: $cheese;
+    margin-bottom: $global-margin/2;
+
+    .staking-ui & {
+      @include breakpoint(large down) {
+        font-size: rem-calc(14);
+      }
+    }
+
+    @include breakpoint(large up) {
+      font-size: rem-calc($font-size);
+      margin-bottom: $global-margin;
+    }
+  }
+}
+
+h1 {
+  font-size: rem-calc($h1/2);
+
+  @include breakpoint(large up) {
+    font-size: rem-calc($h1/1.25);
+  }
+
+  @include breakpoint(1640 up) {
+    font-size: rem-calc($h1);
+  }
+
+  &.reduced {
+    font-size: rem-calc($h2/2);
+
+    @include breakpoint(large up) {
+      font-size: rem-calc($h2/1.25);
+    }
+
+    @include breakpoint(1640 up) {
+      font-size: rem-calc($h2);
+    }
+  }
+
+  .dynamic {
+    font-size: rem-calc(110/2);
+
+    @include breakpoint(large up) {
+      font-size: rem-calc(110/1.25);
+    }
+
+    @include breakpoint(1640 up) {
+      font-size: rem-calc(110);
+    }
+  }
+}
+
+h2, .h2 {
+  font-size: rem-calc($h2/1.5);
+
+  @include breakpoint(large up) {
+    font-size: rem-calc($h2/1.25);
+  }
+
+  @include breakpoint(1640 up) {
+    font-size: rem-calc($h2);
+  }
+}
+
+h3, .h3 {
+  font-size: rem-calc($h3/1.33);
+
+  @include breakpoint(large up) {
+    font-size: rem-calc($h3/1.25)
+  }
+
+  @include breakpoint(1640 up) {
+    font-size: rem-calc($h3)
+  }
+}
+
+p {
+  margin: 0 0 $header-margin-bottom 0;
+}

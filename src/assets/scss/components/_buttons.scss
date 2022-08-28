@@ -1,0 +1,203 @@
+.button-group {
+  @include xy-grid();
+  @include flex-align(left,middle);
+
+  &:not(.combo) {
+    > .btn {
+      &:not(:last-child) {
+        margin-right: rem-calc($small-gutter/2);
+
+        @include breakpoint(large up) {
+          margin-right: rem-calc($large-gutter);
+        }
+      }
+    }
+  }
+
+  &.split {
+    width: 100%;
+
+    > .btn {
+      @include calc(width, "50% - #{$small-gutter/4}px");
+
+      @include breakpoint(large up) {
+        @include calc(width, "50% - #{$large-gutter/2}px");
+      }
+    }
+  }
+
+  &.combo {
+    > .btn {
+      padding: rem-calc(20/2.5 30/2.5);
+
+      @include breakpoint(large up) {
+        padding: rem-calc(20 30);
+      }
+
+      &:first-child {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+      &:last-child {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+    }
+
+    i {
+      &:after {
+        position: relative;
+        display: block;
+        content: attr(data-name);
+        @include scale(1.5);
+      }
+    }
+  }
+}
+
+.btn {
+  display: inline-block;
+  @include custom-radius(rem-calc(47));
+  padding: rem-calc(30/2.5 60/2.5);
+  font-family: $heading-font;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  @extend %fast-ani;
+  font-size: rem-calc(18);
+  background-color: $green;
+  color: $cheese;
+  text-align: center;
+
+  @include breakpoint(medium up) {
+    padding: rem-calc(30/1.5 60/1.5);
+    font-size: rem-calc(21);
+  }
+
+  @include breakpoint(large up) {
+    padding: rem-calc(30 60);
+    font-size: rem-calc(24);
+  }
+
+  &:hover {
+    text-decoration: none;
+    background-color: $darkcontrast;
+  }
+
+  &.inactive {
+    background-color: transparent;
+    color: $green;
+    border: rem-calc(1) solid $green;
+    cursor: default;
+  }
+
+  &.idle {
+    background-color: rgba($black, .1);
+    color: $black;
+    cursor: default;
+  }
+
+  &.secondary {
+    background-color: transparent;
+    border: rem-calc(1) solid $cheese;
+
+    &.dark {
+      border-color: $black;
+      color: $black;
+
+      &:hover {
+        background-color: rgba($black,.1);
+      }
+    }
+
+    &:hover {
+      background-color: rgba($cheese,.1);
+    }
+  }
+
+  &-circle {
+    display: block;
+    font-size: rem-calc(18);
+    font-family: $heading-font;
+    @include custom-radius(50%);
+    background-color: $green;
+    text-align: center;
+    -webkit-box-shadow: rem-calc(0 0 0 15) rgba($green, .33), rem-calc(0 0 0 30) rgba($green, .33);
+    box-shadow: rem-calc(0 0 0 15) rgba($green, .33), rem-calc(0 0 0 30) rgba($green, .33);
+    animation: pulse 1s ease-in-out infinite;
+
+    @include breakpoint(large up) {
+      font-size: rem-calc(24);
+    }
+
+    &:hover {
+      text-decoration: none;
+      background-color: $darkcontrast;
+    }
+  }
+
+  @keyframes pulse {
+    0%, 100% {
+      -webkit-box-shadow: rem-calc(0 0 0 15) rgba($green, .33), rem-calc(0 0 0 30) rgba($green, .33);
+      box-shadow: rem-calc(0 0 0 15) rgba($green, .33), rem-calc(0 0 0 30) rgba($green, .33);
+    }
+    50% {
+      -webkit-box-shadow: rem-calc(0 0 0 30) rgba($green, .1), rem-calc(0 0 0 60) rgba($green, .1);
+      box-shadow: rem-calc(0 0 0 30) rgba($green, .1), rem-calc(0 0 0 60) rgba($green, .1);
+    }
+  }
+
+  &.span {
+    width: 100%;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: rem-calc(20);
+    border-bottom-right-radius: rem-calc(20);
+
+    [data-card] & {
+      display: block;
+      margin-right: rem-calc(-25/1.5);
+      margin-left: rem-calc(-25/1.5);
+      @include calc(width, "100% + 50px / 1.5");
+
+      @include breakpoint(large up) {
+        margin-right: rem-calc(-25);
+        margin-left: rem-calc(-25);
+        @include calc(width, "100% + 50px");
+      }
+    }
+  }
+
+  &.small {
+    font-size: rem-calc(18);
+    padding: rem-calc(20/2.5 40/2.5);
+
+    @include breakpoint(large up) {
+      padding: rem-calc(20 40);
+    }
+
+    &.has-options {
+      position: relative;
+      padding: rem-calc(20/2.5 72/1.5 20/2.5 40/2.5);
+
+      @include breakpoint(large up) {
+        padding: rem-calc(20 52 20 40);
+      }
+    }
+  }
+
+  &.tiny {
+    font-size: rem-calc(14);
+    font-family: $body-font;
+    padding: rem-calc(5/1.5 15/1.5);
+    background-color: $lavander;
+
+    @include breakpoint(large up) {
+      padding: rem-calc(5 15);
+    }
+
+    &:hover {
+      background-color: $lavanderlight;
+    }
+  }
+}

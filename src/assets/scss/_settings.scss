@@ -1,0 +1,185 @@
+@import "utils/util";
+
+//Grids
+//$global-width: 85% !default;
+$global-width: rem-calc(1640) !default;
+$nav-width: rem-calc(1640) !default;
+$global-margin: 1rem;
+$global-lineheight: 1.4;
+$global-flexbox: true;
+
+//Colors
+$white: #FFFFFF;
+$black: #15141A;
+$cheese: #D3D1A6;
+$paper: #C5C1AD;
+$green: #34544F;
+$wood: #7B6951;
+$nightsky: #4C5366;
+$blood: #724A53;
+$minty: #4B6460;
+$clay: #755E64;
+$lavander: #635F80;
+$lavanderlight: #736F8D;
+
+$contrast: $cheese;
+$darkcontrast: #496561;
+$border: $contrast;
+$grey: rgba($white,.4);
+$grey-hover: $white;
+$light-grey: rgba($white,.7);
+$blue: #0095FA;
+
+//z-index
+$z-1: 10;
+$z-10: 999;
+
+//Fonts
+$h1: 110;
+$h2: 44;
+$h3: 26;
+$h4: 12;
+$font-size: 18;
+$body-font: 'DM Sans', sans-serif;
+$heading-font: 'chantal_lightregular', sans-serif;
+$fontreduce: 1.35;
+$header-lineheight: 1.25;
+$header-margin-bottom: 0.5rem;
+
+/// @type Keyword
+$global-text-direction: ltr !default;
+
+// Internal variables used for text direction
+$global-left: if($global-text-direction == rtl, right, left);
+$global-right: if($global-text-direction == rtl, left, right);
+
+// Internal variable that contains the flex justifying options
+$-zf-flex-justify: -zf-flex-justify($global-text-direction);
+
+// Gutters
+$small-gutter: 20;
+$large-gutter: 30;
+
+$grid-column-gutter: (
+    small: $small-gutter,
+    medium: $large-gutter
+);
+
+$grid-cards-gutter: (
+    small: $small-gutter * 4,
+    medium: $large-gutter * 4
+);
+
+$grid-margin-gutters: (
+    small: $small-gutter * 2,
+    medium: $large-gutter * 2
+);
+
+//Grids
+$vspace: 150;
+$midvspace: 100;
+
+%large-vspace {
+  margin-top: rem-calc($vspace / 2);
+  margin-bottom: rem-calc($vspace / 2);
+
+  @include breakpoint(large up) {
+    margin-top: rem-calc($vspace);
+    margin-bottom: rem-calc($vspace);
+  }
+
+  &-top {
+    margin-top: rem-calc($vspace / 2);
+
+    @include breakpoint(large up) {
+      margin-top: rem-calc($vspace);
+    }
+  }
+
+  &-bottom {
+    margin-bottom: rem-calc($vspace / 2);
+
+    @include breakpoint(large up) {
+      margin-bottom: rem-calc($vspace);
+    }
+  }
+}
+
+%mid-vspace {
+  margin-top: rem-calc($midvspace / 2);
+  margin-bottom: rem-calc($midvspace / 2);
+
+  @include breakpoint(large up) {
+    margin-top: rem-calc($midvspace);
+    margin-bottom: rem-calc($midvspace);
+  }
+
+  &-top {
+    margin-top: rem-calc($midvspace / 2);
+
+    @include breakpoint(large up) {
+      margin-top: rem-calc($midvspace);
+    }
+  }
+
+  &-bottom {
+    margin-bottom: rem-calc($midvspace / 2);
+
+    @include breakpoint(large up) {
+      margin-bottom: rem-calc($midvspace);
+    }
+  }
+}
+
+%small-vspace {
+  margin-top: rem-calc($small-gutter);
+  margin-bottom: rem-calc($small-gutter);
+
+  @include breakpoint(large up) {
+    margin-top: rem-calc(30);
+    margin-bottom: rem-calc(30);
+  }
+
+  &-top {
+    margin-top: rem-calc($small-gutter);
+
+    @include breakpoint(large up) {
+      margin-top: rem-calc(30);
+    }
+  }
+
+  &-bottom {
+    margin-bottom: rem-calc($small-gutter);
+
+    @include breakpoint(large up) {
+      margin-bottom: rem-calc(30);
+    }
+  }
+}
+
+// Radius
+%standard-radius {
+  @include custom-radius(rem-calc(11));
+
+  @include breakpoint(medium up) {
+    @include custom-radius(rem-calc(22));
+  }
+
+  &-small {
+    @include custom-radius(rem-calc(10));
+
+    @include breakpoint(medium up) {
+      @include custom-radius(rem-calc(11));
+    }
+  }
+}
+
+// Animations
+%fast-ani {
+  @include transition-transform(all, 200ms, ease-in-out, 0s);
+
+  &:hover {
+    @include transition-transform(all, 300ms, ease-in-out, 0s);
+  }
+}
+

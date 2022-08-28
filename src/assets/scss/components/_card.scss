@@ -1,0 +1,132 @@
+[data-card] {
+  padding: rem-calc($large-gutter/1.5 25/1.5 40/1.5);
+  -webkit-box-shadow: rem-calc(0 0 0 1) $white;
+  box-shadow: rem-calc(0 0 0 1) $white;
+  @extend %fast-ani;
+  @include custom-radius(rem-calc(20));
+
+  @include breakpoint(1023 down) {
+    background-color: $paper;
+    color: $black;
+    -webkit-box-shadow: rem-calc(0 0 0 1) $white, rem-calc(0 0 0 10) rgba($white, .1);
+    box-shadow: rem-calc(0 0 0 1) $white, rem-calc(0 0 0 10) rgba($white, .1);
+  }
+
+  @include breakpoint(large up) {
+    padding: rem-calc($large-gutter 25 40);
+  }
+
+  &.active {
+    background-color: $paper;
+    color: $black;
+    -webkit-box-shadow: rem-calc(0 0 0 1) $white, rem-calc(0 0 0 10) rgba($white, .1);
+    box-shadow: rem-calc(0 0 0 1) $white, rem-calc(0 0 0 10) rgba($white, .1);
+
+    @include breakpoint(large up) {
+      -webkit-box-shadow: rem-calc(0 0 0 1) $white, rem-calc(0 0 0 15) rgba($white, .1);
+      box-shadow: rem-calc(0 0 0 1) $white, rem-calc(0 0 0 15) rgba($white, .1);
+    }
+
+    h3, p {
+      color: inherit;
+    }
+
+    figure {
+      @include scale(1.15);
+
+      img {
+        transform: translateY(-50%) scale(1.15);
+      }
+    }
+
+    .btn {
+      &.span {
+        margin-bottom: rem-calc(-40/1.5);
+
+        @include breakpoint(large up) {
+          max-height: rem-calc(300);
+          padding-top: rem-calc(30);
+          padding-bottom: rem-calc(30);
+          margin-bottom: rem-calc(-40);
+        }
+      }
+    }
+  }
+
+  .btn {
+    @include breakpoint(large up) {
+      overflow: hidden;
+    }
+
+    &.span {
+      @include breakpoint(1023 down) {
+        margin-bottom: rem-calc(-40/1.5);
+      }
+
+      @include breakpoint(large up) {
+        padding-top: 0;
+        padding-bottom: 0;
+        max-height: 0;
+      }
+    }
+  }
+
+  p {
+    margin-bottom: rem-calc($global-margin);
+  }
+
+  figure {
+    position: relative;
+    @include custom-radius(50%);
+    @extend %fast-ani;
+    margin-bottom: rem-calc($global-margin);
+    width: rem-calc(108/1.5);
+    height: rem-calc(108/1.5);
+
+    @include breakpoint(1023 down) {
+      @include scale(1.15);
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    @include breakpoint(large up) {
+      width: rem-calc(108);
+      height: rem-calc(108);
+      margin-bottom: rem-calc($global-margin*2);
+    }
+
+    img {
+      @include vertical-center;
+      width: 110%;
+      max-width: 110%;
+      left: -5%;
+      @extend %fast-ani;
+
+      @include breakpoint(1023 down) {
+        transform: translateY(-50%) scale(1.15);
+      }
+    }
+  }
+}
+
+[data-card="hor"] {
+  background-color: $paper;
+  color: $black;
+  padding-bottom: rem-calc($large-gutter/1.5);
+
+  @include breakpoint(large up) {
+    padding-bottom: rem-calc($large-gutter);
+  }
+
+  figure, p {
+    margin-bottom: 0;
+  }
+
+  .btn {
+    margin-bottom: rem-calc(-15 -$large-gutter/1.5);
+
+    @include breakpoint(large up) {
+      margin-bottom: rem-calc(-25 -$large-gutter);
+    }
+  }
+}

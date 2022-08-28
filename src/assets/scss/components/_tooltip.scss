@@ -1,0 +1,93 @@
+.tooltip {
+  position: relative;
+  display: inline-block;
+  height: rem-calc(42);
+  cursor: pointer;
+
+  //@include breakpoint(large up) {
+  //  margin-left: rem-calc(-37);
+  //}
+
+  h1 & {
+    @include breakpoint(1023 down) {
+      display: block;
+      margin-right: auto;
+      margin-left: auto;
+      width: rem-calc(42);
+    }
+  }
+
+  #staked {
+    &:hover {
+      + .window {
+        @include opacity(1);
+        pointer-events: auto;
+        top: 100%;
+      }
+    }
+  }
+
+  [data-ico="info"] {
+    display: block;
+
+    &:hover {
+      + .window {
+        @include opacity(1);
+        pointer-events: auto;
+        top: 100%;
+      }
+    }
+  }
+
+  .window {
+    @include horizontal-center;
+    display: block;
+    padding: rem-calc(20 10);
+    width: rem-calc(240);
+    top: 110%;
+    @include custom-radius(rem-calc(14));
+    background-color: rgba($white, .85);
+    color: black;
+    font-size: rem-calc(12);
+    font-family: $body-font;
+    font-weight: 400;
+    text-align: left;
+    pointer-events: none;
+    @include opacity(0);
+    @extend %fast-ani;
+
+    .staking-list & {
+      @include breakpoint(1023 down) {
+        right: 0;
+        left: auto;
+        transform: translateX(0);
+
+        &:before {
+          left: calc(100% - 22px);
+        }
+      }
+    }
+
+    &:before {
+      position: absolute;
+      display: block;
+      content: "";
+      @include css-triangle(rem-calc(10), rgba($white, .9), up);
+      top: rem-calc(-10);
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    h4, p, ul {
+      margin-top: 0;
+      margin-bottom: 0;
+      font-size: inherit;
+      font-weight: inherit;
+      color: inherit;
+    }
+
+    h4 {
+      text-transform: uppercase;
+    }
+  }
+}

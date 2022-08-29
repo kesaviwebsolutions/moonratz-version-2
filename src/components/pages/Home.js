@@ -29,36 +29,36 @@ import { Link } from "react-router-dom";
 // app.js
 import $ from "jquery";
 
-$(window).on('load', function(){
-  $('body').removeClass('preload');
+$(window).on("load", function () {
+  $("body").removeClass("preload");
 });
 
 // mobile menu
-$('#mtoggle').on("click", function(e) {
+$("#mtoggle").on("click", function (e) {
   checker();
 });
 
 function checker() {
   var checkBox = document.getElementById("menu-toggle");
-  if (checkBox.checked == true){
-    $('body').removeClass('noscroll');
+  if (checkBox.checked == true) {
+    $("body").removeClass("noscroll");
     document.getElementById("menu-toggle").checked = true;
   } else {
-    $('body').addClass('noscroll');
+    $("body").addClass("noscroll");
     document.getElementById("menu-toggle").checked = false;
   }
 }
 
-$('.key-nav').on("click", function(e) {
+$(".key-nav").on("click", function (e) {
   document.getElementById("menu-toggle").checked = false;
-  $('body').removeClass('noscroll');
+  $("body").removeClass("noscroll");
 });
 
 // nft animation
 
 var pause = false;
 //save blocks
-var block1 = $('.bg-block1');
+var block1 = $(".bg-block1");
 //variable for counter
 var k = 0;
 
@@ -66,8 +66,8 @@ var k = 0;
 setInterval(function () {
   if (!pause) {
     var $this1 = block1.eq(k);
-    block1.removeClass('active').eq(k).addClass('active');
-    $this1.addClass('active');
+    block1.removeClass("active").eq(k).addClass("active");
+    $this1.addClass("active");
     //increase k every 1.5 sec
     k++;
     //if k more then number of blocks on page
@@ -80,8 +80,8 @@ setInterval(function () {
 }, 200);
 
 // moving stripes
-$(window).on("load resize scroll", function() {
-  $('#stripes').each(function() {
+$(window).on("load resize scroll", function () {
+  $("#stripes").each(function () {
     var windowTop = $(window).scrollTop();
     var elementTop = $(this).offset().top;
     var leftPosition = windowTop - elementTop;
@@ -95,28 +95,31 @@ $(window).on("load resize scroll", function() {
 });
 
 // scrolling bar
-function mediaSizeForNav() {
-  var new_scroll_position = 0;
-  var last_scroll_position;
-  var navbar = document.getElementById('nav');
+// function mediaSizeForNav() {
+//   var new_scroll_position = 0;
+//   var last_scroll_position;
+//   var navbar = document.getElementById("nav");
 
-  window.addEventListener('scroll', function (e) {
-    last_scroll_position = window.scrollY;
+//   window.addEventListener("scroll", function (e) {
+//     last_scroll_position = window.scrollY;
 
-    if (new_scroll_position < last_scroll_position && last_scroll_position > 58) {
-      navbar.classList.remove("slide-down");
-      navbar.classList.add("slide-up");
-    } else {
-      navbar.classList.remove("slide-up");
-      navbar.classList.add("slide-down");
-    }
+//     if (
+//       new_scroll_position < last_scroll_position &&
+//       last_scroll_position > 58
+//     ) {
+//       navbar.classList.remove("slideDown");
+//       navbar.classList.add("slideUp");
+//     } else {
+//       navbar.classList.remove("slideUp");
+//       navbar.classList.add("slideDown");
+//     }
 
-    new_scroll_position = last_scroll_position;
-  });
-}
+//     new_scroll_position = last_scroll_position;
+//   });
+// }
 
-mediaSizeForNav();
-window.addEventListener('resize', mediaSizeForNav, false);
+// mediaSizeForNav();
+// window.addEventListener("resize", mediaSizeForNav, false);
 
 // submenu
 // $(window).click(function() {
@@ -128,11 +131,11 @@ window.addEventListener('resize', mediaSizeForNav, false);
 // });
 
 // card navigation
-$(function() {
-  $('#cardsList article').on("mouseover", function(e){
-    $('#cardsList article').removeClass('active');
-    $(this).addClass('active');
-  })
+$(function () {
+  $("#cardsList article").on("mouseover", function (e) {
+    $("#cardsList article").removeClass("active");
+    $(this).addClass("active");
+  });
 });
 
 export default function Home({ user }) {
